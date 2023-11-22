@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { NavLinks } from "../utils/links";
 import classNames from "classnames";
 import { TodoLogoHeader } from "./logo";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, User } from "lucide-react";
 
 type Props = {
   label: string;
@@ -48,9 +48,12 @@ export function HeaderComponent() {
           );
         })}
       </nav>
-      <div className="relative cursor-pointer">
+      <div className="relative cursor-pointer mr-[30px]">
         <div className="absolute -right-1 -top-1 h-4 w-4 rounded-full bg-[#FF83DC]"></div>
         <ShoppingCart />
+      </div>
+      <div className="cursor-pointer">
+        <User />
       </div>
     </header>
   );
