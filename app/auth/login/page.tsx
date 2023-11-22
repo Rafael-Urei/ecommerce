@@ -7,7 +7,7 @@ import AuthLayout from "@/app/layouts/auth-layout";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Suspense } from "react";
-import Loading from "./loading";
+import Loading from "../loading";
 
 export default function AuthLoginPage() {
   const authMethods = useForm<Auth>({ resolver: yupResolver(authSchema) });
