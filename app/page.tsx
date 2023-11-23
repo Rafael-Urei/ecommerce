@@ -1,10 +1,10 @@
 import Image from "next/image";
 import BasicLayout from "./layouts/basic-layout";
-import { MoveRight } from "lucide-react";
 import { Ingrid_Darling } from "next/font/google";
 import { ArrowRight } from "./components/icons";
 import Link from "next/link";
-import { ProductsPaperComponent } from "./components/product-paper";
+import { CategoryPaperComponent } from "./components/category-paper";
+import ProductPaperComponent from "./components/product-paper";
 
 const ingrid_darling = Ingrid_Darling({ subsets: ["latin"], weight: ["400"] });
 
@@ -32,12 +32,19 @@ export default function Home() {
           </button>
         </div>
       </article>
-      <section className="flex flex-wrap gap-4 items-center justify-around py-10 px-5">
-        <ProductsPaperComponent title="sneakers" img="/sneaker.jpeg" />
-        <ProductsPaperComponent title="shirts" img="/shirt.jpeg" />
+      <section className="flex flex-wrap gap-4 items-center justify-around pt-10 px-5">
+        <CategoryPaperComponent title="sneakers" img="/sneaker.jpeg" />
+        <CategoryPaperComponent title="shirts" img="/shirt.jpeg" />
       </section>
-      <section>
-        <h1 className="text-[20px]">On Sale</h1>
+      <section className="flex flex-col items-center py-20">
+        <h1 className="text-[20px] pb-20">On Sale</h1>
+        <div>
+          <div className="px-10 flex gap-[82px]">
+            <ProductPaperComponent />
+            <ProductPaperComponent />
+            <ProductPaperComponent />
+          </div>
+        </div>
       </section>
     </BasicLayout>
   );

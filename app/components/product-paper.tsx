@@ -1,26 +1,19 @@
-import Image from "next/image";
-
-type Props = {
-  title: string;
-  img: string;
-};
-
-export function ProductsPaperComponent({ title, img }: Props) {
+export default function ProductPaperComponent() {
   return (
-    <div className="relative flex items-center justify-center w-[650px] h-[320px] cursor-pointer bg-slate-200">
-      <h1 className="absolute z-10 text-white font-bold text-[32px]">
-        {title}
-      </h1>
-      <Image
-        src={img}
-        alt=""
-        fill
-        style={{ objectFit: "cover" }}
-        className="hover:opacity-40 duration-300"
-      />
-      <button className="absolute duration-300 right-6 bottom-6 px-[40px] h-[50px] text-[#818181] bg-white rounded hover:bg-black hover:text-white">
-        Check Products
-      </button>
+    <div className="w-[320px] h-auto">
+      <div className="w-[320px] h-[240px] bg-[#D9D9D9]"></div>
+      <div className="flex justify-between pt-2">
+        <h1 className="text-sm font-medium">Product Title</h1>
+        <div>
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-medium">R$ 50,00</span>
+            <span className="text-[10px] font-medium text-[#C3C3C3] line-through">
+              R$ 100,00
+            </span>
+          </div>
+          <span className="text-[10px] font-bold">%50</span>
+        </div>
+      </div>
     </div>
   );
 }
