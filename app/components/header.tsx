@@ -31,7 +31,7 @@ export function NavLinkComponent({ label, path }: Props) {
 
 export function HeaderComponent() {
   return (
-    <header className="w-full h-[73px] flex items-center shadow-md px-[70px]">
+    <header className="sitcky top-0 w-full h-[73px] flex items-center shadow-md px-[70px]">
       <div className="pr-[70px]">
         <Link href="/">
           <TodoLogoHeader />

@@ -5,6 +5,7 @@ import { ArrowRight } from "./components/icons";
 import Link from "next/link";
 import { CategoryPaperComponent } from "./components/category-paper";
 import ProductPaperComponent from "./components/product-paper";
+import { PanelComponent } from "./components/panel";
 
 const ingrid_darling = Ingrid_Darling({ subsets: ["latin"], weight: ["400"] });
 
@@ -45,6 +46,9 @@ export default function Home() {
             <ProductPaperComponent />
           </div>
         </div>
+      </section>
+      <section className="w-full h-auto flex items-center justify-center py-10">
+        <PanelComponent />
       </section>
     </BasicLayout>
   );
