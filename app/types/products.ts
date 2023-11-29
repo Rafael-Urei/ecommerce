@@ -1,19 +1,44 @@
-export type Product = {
+export interface Product {
+    data: {
+        id: number,
+        attributes: ProductAttributes
+    }
+}
+
+type ProductAttributes = {
     name: string,
     description: string,
     price: number,
-    descount: number,
     rate: number,
+    descount: number,
     createdAt: string,
-    updatedAt: string,	
-    publishedAt: string
+    updatedAt: string,
+    publishedAt: string,
+    variants: {
+        data: Variant[]
+    }
+    reviews: {
+        data: Review[]
+    }
 }
 
-export type Products = {
+type Review = {
     id: number,
-    attributes: Product
+    attributes: {
+        reviewer: string,
+        review: string
+    }
 }
 
-export type Data = {
-    data: Products
+type Variant = {
+    id: number,
+    attributes: {
+        size: string,
+        descount: number,
+        createdAt: string,
+        updatedAt: string,
+        publishedAt: string,
+        storage: number,
+    }
+    
 }

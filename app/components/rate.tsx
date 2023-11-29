@@ -5,10 +5,11 @@ import { Star, StarFill } from "./star";
 
 type Props = {
   readOnly: boolean;
+  rate: number;
 };
 
-export function Rate({ readOnly = true }: Props) {
-  const [classification, setClassification] = useState(4);
+export function Rate({ readOnly = true, rate }: Props) {
+  const [classification, setClassification] = useState(rate);
 
   const handleSetRate = (number: number) => {
     if (readOnly) {
