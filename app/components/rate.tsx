@@ -37,7 +37,7 @@ export function Rate({ readOnly = true, rate }: Props) {
           {classification >= 5 ? <StarFill /> : <Star />}
         </button>
       </div>
-      <span className="font-semibold text-xs">{classification.toFixed(1)}</span>
+      <span className="font-semibold text-xs">1</span>
     </div>
   );
 }

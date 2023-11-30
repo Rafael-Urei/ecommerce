@@ -1,44 +1,9 @@
-export interface Product {
+import { Product } from "./product"
+
+export interface Products {
     data: {
-        id: number,
-        attributes: ProductAttributes
+        products: {
+            data: Product[]
+        }
     }
-}
-
-type ProductAttributes = {
-    name: string,
-    description: string,
-    price: number,
-    rate: number,
-    descount: number,
-    createdAt: string,
-    updatedAt: string,
-    publishedAt: string,
-    variants: {
-        data: Variant[]
-    }
-    reviews: {
-        data: Review[]
-    }
-}
-
-type Review = {
-    id: number,
-    attributes: {
-        reviewer: string,
-        review: string
-    }
-}
-
-type Variant = {
-    id: number,
-    attributes: {
-        size: string,
-        descount: number,
-        createdAt: string,
-        updatedAt: string,
-        publishedAt: string,
-        storage: number,
-    }
-    
 }
