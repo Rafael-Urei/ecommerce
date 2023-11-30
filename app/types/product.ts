@@ -13,6 +13,9 @@ export interface FilteredProduct {
         name: string,
         price: number,
         description: string,
+        shirts: {
+            data: Shirts[]
+        }
         category: {
             data: {
                 id: string,
@@ -20,6 +23,22 @@ export interface FilteredProduct {
                     name: string
                 }
             }
+        }
+    }
+}
+
+type Sizes = {
+    id: string,
+    attributes: {
+        name: string
+    }
+}
+
+type Shirts = {
+    id: string,
+    attributes: {
+        sizes: {
+            data: Sizes[]
         }
     }
 }

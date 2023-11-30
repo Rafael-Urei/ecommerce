@@ -13,6 +13,20 @@ export function useProduct(id: string) {
           name
           description
           price
+          shirts {
+            data {
+              id
+              attributes {
+                sizes {
+                  data {
+                    attributes {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
           category {
             data {
               id

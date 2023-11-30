@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useProducts } from "../hooks/useProducts";
 import BasicLayout from "../layouts/basic-layout";
 import { formatPrice } from "../utils/format-price";
+import { Rate } from "../components/rate";
 
 export default function ProductsPage() {
   const {
@@ -27,6 +28,7 @@ export default function ProductsPage() {
                 <span className="text-emerald-500">
                   {formatPrice.format(product.attributes.price)}
                 </span>
+                <Rate rate={1} readOnly />
               </div>
               <button className="flex items-center justify-center p-5 text-center bg-[#3C3C3C] text-white font-bold w-full rounded-br-lg rounded-bl-lg duration-200 hover:bg-white hover:text-black">
                 Add to cart
