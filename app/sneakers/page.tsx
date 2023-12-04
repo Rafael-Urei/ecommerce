@@ -1,5 +1,10 @@
+import ProductsListCommponent from "../components/product-list";
 import BasicLayout from "../layouts/basic-layout";
 
 export default function SneakersPage() {
-  return <BasicLayout>ola</BasicLayout>;
+  return (
+    <BasicLayout>
+      <ProductsListCommponent id={2} />
+    </BasicLayout>
+  );
 }

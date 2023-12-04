@@ -1,5 +1,3 @@
-import { FilteredProduct, Product } from "./product"
-
 export interface Products {
     data: {
         products: {
@@ -8,10 +6,18 @@ export interface Products {
     }
 }
 
-export interface SingleProduct {
-    data: {
-        product: {
-            data: FilteredProduct
+type Product = {
+    id: string,
+    attributes: {
+        product_name: string,
+        price: number,
+        category: {
+            data: {
+                id: string,
+                attributes: {
+                    cattegory_name: string
+                }
+            }
         }
     }
 }

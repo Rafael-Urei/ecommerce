@@ -1,22 +1,23 @@
 "use client";
 
 import { gql, useSuspenseQuery } from "@apollo/client";
-import { Products } from "../types/products";
+import { ProductsByCategory } from "../types/category";
+import { Query } from "@tanstack/react-query";
 
-export function useProducts() {
+export function useCategory(id: number) {
   const query = gql`
     query {
-      products {
+      category(id: ${id}) {
         data {
           id
           attributes {
-            product_name
-            price
-            category {
+            cattegory_name
+            products {
               data {
                 id
                 attributes {
-                  cattegory_name
+                  product_name
+                  price
                 }
               }
             }
@@ -25,8 +26,8 @@ export function useProducts() {
       }
     }
   `;
+  const { data }: ProductsByCategory = useSuspenseQuery(query);
 
-  const { data }: Products = useSuspenseQuery(query);
   return {
     data,
   };

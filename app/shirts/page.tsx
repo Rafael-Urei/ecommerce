@@ -1,9 +1,10 @@
+import ProductsListCommponent from "../components/product-list";
 import BasicLayout from "../layouts/basic-layout";
 
-export default function ShirtsPage() {
+export default function ShirtPage() {
   return (
     <BasicLayout>
-      <h1>Shirts Page</h1>
+      <ProductsListCommponent id={1} />
     </BasicLayout>
   );
 }
