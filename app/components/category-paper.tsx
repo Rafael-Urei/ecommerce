@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   title: string;
@@ -19,7 +20,7 @@ export function CategoryPaperComponent({ title, img }: Props) {
         className="hover:opacity-40 duration-300"
       />
       <button className="absolute duration-300 right-6 bottom-6 px-[40px] h-[50px] text-[#818181] bg-white rounded hover:bg-black hover:text-white">
-        Check Products
+        <Link href={`/${title}`}>Check Products</Link>
       </button>
     </div>
   );
