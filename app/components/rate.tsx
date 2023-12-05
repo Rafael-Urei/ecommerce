@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Star, StarFill } from "./star";
+import { number } from "yup";
 
 type Props = {
   readOnly: boolean;
@@ -37,7 +38,7 @@ export function Rate({ readOnly = true, rate }: Props) {
           {classification >= 5 ? <StarFill /> : <Star />}
         </button>
       </div>
-      <span className="font-semibold text-xs">1</span>
+      <span className="font-semibold text-xs">{rate}</span>
     </div>
   );
 }

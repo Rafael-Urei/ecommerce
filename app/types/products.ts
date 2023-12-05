@@ -11,6 +11,12 @@ type Product = {
     attributes: {
         product_name: string,
         price: number,
+        reviews: {
+            data: Reviews[]
+        }
+        product_images: {
+            data: ProductImages[]
+        }
         category: {
             data: {
                 id: string,
@@ -20,4 +26,38 @@ type Product = {
             }
         }
     }
+}
+
+type Reviews = {
+    id: string,
+    attributes: {
+        rate: number,
+        review: string,
+        reviewer: string
+    }
+}
+
+type ProductImages = {
+    id: string
+    attributes: {
+        url: string
+        formats: {
+            thumbnail: FormatImg,
+            large: FormatImg
+            medium: FormatImg
+            small: FormatImg
+        }
+    }
+}
+
+type FormatImg = {
+    name: string,
+    hash: string,
+    ext: string
+    mime: string
+    path: null
+    width: number
+    height: number
+    size: number
+    url: string
 }
