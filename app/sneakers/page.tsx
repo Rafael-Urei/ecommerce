@@ -4,7 +4,7 @@ import BasicLayout from "../layouts/basic-layout";
 export default function SneakersPage() {
   return (
     <BasicLayout>
-      <ProductsListCommponent id={2} />
+      <ProductsListCommponent category="sneaker" />
     </BasicLayout>
   );
 }

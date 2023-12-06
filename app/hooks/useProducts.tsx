@@ -2,6 +2,7 @@
 
 import { gql, useSuspenseQuery } from "@apollo/client";
 import { Products } from "../types/products";
+import { formatPrice } from "../utils/format-price";
 
 export function useProducts(category?: string) {
   const query = gql`
@@ -49,8 +50,7 @@ export function useProducts(category?: string) {
 
   const products = data.products.data.map((product) => ({
     id: product.id,
-
-    price: product.attributes.price,
+    price: formatPrice.format(product.attributes.price),
     name: product.attributes.product_name,
     rate:
       product.attributes.reviews.data.reduce(
@@ -72,11 +72,12 @@ export function useProducts(category?: string) {
   }));
 
   const productsByCategory = products.filter(
-    (product) => product.category === category
+    (product) => product.category.toLowerCase() === category
   );
 
   return {
     products,
     productsByCategory,
+    category,
   };
 }

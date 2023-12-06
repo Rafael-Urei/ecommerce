@@ -4,7 +4,7 @@ import BasicLayout from "../layouts/basic-layout";
 export default function ShirtPage() {
   return (
     <BasicLayout>
-      <ProductsListCommponent id={1} />
+      <ProductsListCommponent category="shirt" />
     </BasicLayout>
   );
 }
