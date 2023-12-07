@@ -4,7 +4,6 @@ import { Ingrid_Darling } from "next/font/google";
 import { ArrowRight } from "./components/icons";
 import Link from "next/link";
 import { CategoryPaperComponent } from "./components/category-paper";
-import ProductPaperComponent from "./components/product-paper";
 import { PanelComponent } from "./components/panel";
 
 const ingrid_darling = Ingrid_Darling({ subsets: ["latin"], weight: ["400"] });
@@ -40,11 +39,7 @@ export default function Home() {
       <section className="flex flex-col items-center py-20">
         <h1 className="text-[20px] pb-20">On Sale</h1>
         <div>
-          <div className="px-10 flex gap-[82px]">
-            <ProductPaperComponent />
-            <ProductPaperComponent />
-            <ProductPaperComponent />
-          </div>
+          <div className="px-10 flex gap-[82px]"></div>
         </div>
       </section>
       <section className="w-full h-auto flex items-center justify-center py-10">

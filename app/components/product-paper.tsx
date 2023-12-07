@@ -1,9 +1,15 @@
-export default function ProductPaperComponent() {
+"use client";
+
+type Product = {
+  name: string;
+};
+
+export default function ProductPaperComponent({ name }: Product) {
   return (
     <div className="w-[320px] h-auto">
       <div className="w-[320px] h-[240px] bg-[#D9D9D9]"></div>
       <div className="flex justify-between pt-2">
-        <h1 className="text-sm font-medium"></h1>
+        <h1 className="text-sm font-medium">{name}</h1>
         <div>
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium"></span>

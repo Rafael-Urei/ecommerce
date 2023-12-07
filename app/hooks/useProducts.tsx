@@ -3,47 +3,15 @@
 import { gql, useSuspenseQuery } from "@apollo/client";
 import { Products } from "../types/products";
 import { formatPrice } from "../utils/format-price";
+import { mountQuery } from "../utils/graphql-filters";
+import { useFilter } from "./useFilter";
+import { FilterByType } from "../types/filters";
 
-export function useProducts(category?: string) {
+export function useProducts(category: FilterByType) {
+  const { type } = useFilter();
+
   const query = gql`
-    query {
-      products {
-        data {
-          id
-          attributes {
-            product_name
-            price
-            reviews {
-              data {
-                id
-                attributes {
-                  rate
-                  review
-                  reviewer
-                }
-              }
-            }
-            product_images {
-              data {
-                id
-                attributes {
-                  url
-                  formats
-                }
-              }
-            }
-            category {
-              data {
-                id
-                attributes {
-                  cattegory_name
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    ${mountQuery(category)}
   `;
 
   const { data }: Products = useSuspenseQuery(query);
@@ -52,6 +20,14 @@ export function useProducts(category?: string) {
     id: product.id,
     price: formatPrice.format(product.attributes.price),
     name: product.attributes.product_name,
+    variants: product.attributes.variants.data.map((variant) => ({
+      id: variant.id,
+      product_id: product.id,
+      variant_name: product.attributes.product_name,
+      price: product.attributes.price,
+      sale: variant.attributes.sale,
+      descount: variant.attributes.descount,
+    })),
     rate:
       product.attributes.reviews.data.reduce(
         (prev, current) => prev + current.attributes.rate,
@@ -71,13 +47,7 @@ export function useProducts(category?: string) {
     })),
   }));
 
-  const productsByCategory = products.filter(
-    (product) => product.category.toLowerCase() === category
-  );
-
   return {
     products,
-    productsByCategory,
-    category,
   };
 }

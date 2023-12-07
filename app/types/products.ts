@@ -11,6 +11,9 @@ type Product = {
     attributes: {
         product_name: string,
         price: number,
+        variants: {
+            data: Variants[]
+        }
         reviews: {
             data: Reviews[]
         }
@@ -25,6 +28,14 @@ type Product = {
                 }
             }
         }
+    }
+}
+
+type Variants = {
+    id: string,
+    attributes: {
+        sale: boolean,
+        descount: number
     }
 }
 
