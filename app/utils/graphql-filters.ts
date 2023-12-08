@@ -3,6 +3,7 @@ import { FilterByType } from "../types/filters"
 function getFieldByType(type: FilterByType) {
     if (type == FilterByType.SHIRTS) return 'Shirt'
     if (type == FilterByType.SNEAKERS) return 'Sneaker'
+    if (type == FilterByType.SALE) return ''
 }
 
 export function mountQuery(category: FilterByType) {

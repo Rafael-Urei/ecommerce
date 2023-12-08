@@ -6,6 +6,40 @@ export interface Products {
     }
 }
 
+export type FormatedProduct = {
+    id: string,
+    name: string,
+    price: number,
+    variants: [{
+        id: string,
+        product_id: string
+        variant_name: string
+        price: number
+        sale: boolean
+        descount: number,
+    }],
+    rate: number,
+    reviews: [{
+        id: string
+        review_text: string
+        reviewer: string
+        rate: number
+    }],
+    category: string,
+    media: [{
+            id: string,
+            formats: {
+                thumbnail: FormatImg,
+                large: FormatImg
+                medium: FormatImg
+                small: FormatImg
+            }
+            url: string,
+        }]
+}
+
+
+
 type Product = {
     id: string,
     attributes: {

@@ -1,5 +1,6 @@
 export enum FilterByType {
     'ALL',
     'SHIRTS',
-    'SNEAKERS'
+    'SNEAKERS',
+    'SALE'
 }
