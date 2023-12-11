@@ -1,4 +1,6 @@
-export default function ProductPaperComponent() {
+"use client";
+
+export default function ProductPaperComponent({ ...props }) {
   return (
     <div className="w-[320px] h-auto">
       <div className="w-[320px] h-[240px] bg-[#D9D9D9]"></div>

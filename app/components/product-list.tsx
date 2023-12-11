@@ -1,18 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { useProducts } from "../hooks/useProducts";
 import { Rate } from "./rate";
+import { useProducts } from "../hooks/useProducts";
+import { FilterByType } from "../types/filters";
 
 type Props = {
-  category?: string;
+  category: FilterByType;
 };
 
 export default function ProductsListCommponent({ category }: Props) {
-  const { productsByCategory } = useProducts(category);
+  const { products } = useProducts(category);
   return (
     <section className="flex flex-wrap gap-10 p-10">
-      {productsByCategory.map((product) => (
+      {products.map((product) => (
         <div key={product.id} className="flex flex-col justify-between gap-4">
           <Image
             src={`http://localhost:1337${product.media[0].formats.small.url}`}

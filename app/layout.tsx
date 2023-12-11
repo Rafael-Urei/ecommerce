@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import { ApolloWrapper } from "./lib/apollo-provider";
+import FilterContextProvider from "./context/filter-context";
+import AuthProvider from "./context/auth-context";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -21,7 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <ApolloWrapper>{children}</ApolloWrapper>
+        <ApolloWrapper>
+          <AuthProvider>
+            <FilterContextProvider>{children}</FilterContextProvider>
+          </AuthProvider>
+        </ApolloWrapper>
       </body>
     </html>
   );
