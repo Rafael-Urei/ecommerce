@@ -8,13 +8,15 @@ import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Suspense } from "react";
 import Loading from "../loading";
+import { useAuth } from "@/app/hooks/useAuth";
 
 export default function AuthLoginPage() {
   const authMethods = useForm<Auth>({ resolver: yupResolver(authSchema) });
+  const { signIn, user } = useAuth();
 
   const onSubmit = (data: Auth) => {
-    console.log(data);
-    console.log(authMethods.getValues("email"));
+    signIn(data);
+    console.log(user);
   };
 
   return (
